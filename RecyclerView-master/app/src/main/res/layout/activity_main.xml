@@ -4,10 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none" />
+    <Button
+        android:id="@+id/btn_to_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到一级列表" />
 
+    <Button
+        android:id="@+id/btn_to_tree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到树形列表" />
 </LinearLayout>
