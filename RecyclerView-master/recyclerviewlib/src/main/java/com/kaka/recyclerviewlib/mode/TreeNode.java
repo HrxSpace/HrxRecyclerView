@@ -183,7 +183,7 @@ public class TreeNode<T, B> {
     /**
      * 设置展开
      *
-     * @param isExpand
+     * @param isExpand true - 设置为展开，false - 设置为不展开
      */
     public void setExpand(boolean isExpand) {
         this.isExpand = isExpand;

@@ -99,7 +99,7 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         return mDelegate.onCreateViewHolder(parent, viewType);
     }
 
-    TreeNode treeNode;
+
 
     /**
      * 给ViewHolder绑定数据
@@ -110,11 +110,7 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         final int pos = holder.getLayoutPosition();
-        Log.d(TAG, "onBindViewHolder: position" + position);
-        Log.d(TAG, "onBindViewHolder: holder.getLayoutPosition()" + holder.getLayoutPosition());
-        Log.d(TAG, "onBindViewHolder: holder.getAdapterPosition()" + holder.getAdapterPosition());
-        treeNode = mTreeNodes.get(position);
-        Log.d(TAG, "onBindViewHolder: treeNode" + treeNode.getName());
+        final TreeNode treeNode = mTreeNodes.get(position);
         holder.onBindViewHolder(treeNode);
         // 设置内边距
         holder.itemView.setPadding(treeNode.getLevel() * 30, 3, 3, 3);
@@ -129,10 +125,11 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     /**
                      * 点击项移动到第一行
                      */
-//                        ScrollItemToFist(pos, treeNode);
-//                    if (mListener != null) {
-//                        mListener.onClick(v, pos, treeNode);
-//                    }
+                    ScrollItemToFist(pos, treeNode);
+
+                    if (mListener != null) {
+                        mListener.onClick(v, pos, treeNode);
+                    }
                 }
             });
             holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -289,7 +286,6 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
      * @param position 点击的位置
      */
     public void expandOrCollapse(int position) {
-        Log.d(TAG, "expandOrCollapse: position--" + position);
         int preSize = mRecyclerView.getLayoutManager().getChildCount();
         TreeNode n = mTreeNodes.get(position);
         if (n != null) {// 排除传入参数错误异常
@@ -297,16 +293,16 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 boolean isExpand = n.isExpand();
                 n.setExpand(!isExpand);
                 mTreeNodes = TreeHelper.filterVisibleNode(mAllTreeNodes);
-                notifyItemRangeRemoved(0, mTreeNodes.size()-1);
-                notifyItemRangeInserted(0, mTreeNodes.size()-1);
-//                // 刷新视图
-//                int childSize = n.getChildren().size();
-//                if (isExpand) {
-//                    notifyItemRangeInserted(position + 1, childSize);
-//                } else {
-//                    notifyItemRangeRemoved(position + 1, childSize);
-//                }
-//                notifyItemRangeChanged(position + 1, mTreeNodes.size() - position);
+                // 刷新视图
+                int childSize = n.getChildren().size();
+                if (!isExpand) {
+                    notifyItemRangeInserted(position + 1, childSize);
+                    notifyItemRangeChanged(position + 1, mTreeNodes.size() -1 - position);
+                } else {
+                    notifyItemRangeRemoved(position + 1, childSize);
+                    notifyItemRangeChanged(position + 1, preSize -1 - position);
+                }
+
             }
         }
     }
@@ -314,7 +310,7 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 响应Item点击事件，将点击的节点移动到第一个Item
      */
-    public void ScrollItemToFist(int position, TreeNode treeNode) {
+    public void ScrollItemToFist(int position,final TreeNode treeNode) {
         RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
         if (treeNode.isRoot() || treeNode.getParent() != null) {
             if (layoutManager instanceof LinearLayoutManager) {
