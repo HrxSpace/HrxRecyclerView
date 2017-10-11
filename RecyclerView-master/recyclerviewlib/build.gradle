@@ -8,7 +8,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -31,7 +31,7 @@ android {
         //（我们只关心classes.jar这个文件）
         include('classes.jar')
         //重命名
-        rename('classes.jar', 'RecyclerViewlib.jar')
+        rename('classes.jar', 'RecyclerViewlib_1.1.jar')
     }
     makeJar.dependsOn(build)
 }

@@ -1,11 +1,11 @@
-package com.example.recyclerview_master.single.recyclerview;
+package com.example.recyclerview_master.single;
 
 import android.view.ViewGroup;
 
 import com.example.recyclerview_master.R;
-import com.example.recyclerview_master.single.recyclerview.holder.AnimalViewHolder;
-import com.example.recyclerview_master.single.recyclerview.holder.HeaderViewHolder;
-import com.example.recyclerview_master.single.recyclerview.holder.PlantViewHolder;
+import com.example.recyclerview_master.single.holder.AnimalViewHolder;
+import com.example.recyclerview_master.single.holder.HeaderViewHolder;
+import com.example.recyclerview_master.single.holder.PlantViewHolder;
 import com.kaka.recyclerviewlib.base.BaseDelegate;
 import com.kaka.recyclerviewlib.base.BaseViewHolder;
 import com.kaka.recyclerviewlib.mode.ItemData;

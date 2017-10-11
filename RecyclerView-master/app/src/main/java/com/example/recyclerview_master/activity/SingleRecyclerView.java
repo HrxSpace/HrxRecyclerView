@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.AnimalBean;
-import com.example.recyclerview_master.single.recyclerview.SingleDelegate;
+import com.example.recyclerview_master.single.SingleDelegate;
 import com.kaka.recyclerviewlib.baseadp.RecyclerAdp;
 import com.kaka.recyclerviewlib.listener.OnItemClickListener;
 import com.kaka.recyclerviewlib.mode.ItemData;

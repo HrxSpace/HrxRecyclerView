@@ -1,4 +1,4 @@
-package com.example.recyclerview_master.single.recyclerview.holder;
+package com.example.recyclerview_master.single.holder;
 
 import android.view.View;
 import android.view.ViewGroup;
