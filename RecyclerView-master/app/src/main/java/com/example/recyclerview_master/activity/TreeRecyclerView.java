@@ -1,10 +1,11 @@
 package com.example.recyclerview_master.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.AnimalBean;
@@ -12,7 +13,6 @@ import com.example.recyclerview_master.treelevel.TreeDelegate;
 import com.kaka.recyclerviewlib.mode.TreeNode;
 import com.kaka.recyclerviewlib.treeadp.TreeRecyclerAdapter;
 import com.kaka.recyclerviewlib.listener.OnTreeItemClickListener;
-import com.kaka.recyclerviewlib.treeadp.WrapLinearLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;

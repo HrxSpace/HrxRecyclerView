@@ -1,10 +1,11 @@
 package com.kaka.recyclerviewlib.treeadp;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.kaka.recyclerviewlib.base.BaseDelegate;
 import com.kaka.recyclerviewlib.base.BaseViewHolder;

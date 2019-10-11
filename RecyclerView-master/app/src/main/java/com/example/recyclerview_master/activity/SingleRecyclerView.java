@@ -1,10 +1,11 @@
 package com.example.recyclerview_master.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.AnimalBean;

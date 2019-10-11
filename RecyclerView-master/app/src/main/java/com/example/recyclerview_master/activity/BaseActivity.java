@@ -1,7 +1,8 @@
 package com.example.recyclerview_master.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recyclerview_master.model.AnimalBean;
 import com.example.recyclerview_master.model.PlantBean;
