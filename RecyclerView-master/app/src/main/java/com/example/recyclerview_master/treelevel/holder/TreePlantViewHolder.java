@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.PlantBean;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.mode.TreeNode;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.mode.TreeNode;
 
 /**
  * Created by hrx on 2017/4/22.

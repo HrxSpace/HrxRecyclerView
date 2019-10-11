@@ -6,9 +6,9 @@ import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.treelevel.holder.TreeAnimalViewHolder;
 import com.example.recyclerview_master.treelevel.holder.TreeHeaderViewHolder;
 import com.example.recyclerview_master.treelevel.holder.TreePlantViewHolder;
-import com.kaka.recyclerviewlib.base.BaseDelegate;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.mode.TreeNode;
+import com.hrx.recyclerview.base.BaseDelegate;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.mode.TreeNode;
 
 /**
  * Created by hrx on 2017/4/22.

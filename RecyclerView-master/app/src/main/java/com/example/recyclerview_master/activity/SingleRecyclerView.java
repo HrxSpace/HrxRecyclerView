@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.AnimalBean;
 import com.example.recyclerview_master.single.SingleDelegate;
-import com.kaka.recyclerviewlib.baseadp.RecyclerAdp;
-import com.kaka.recyclerviewlib.listener.OnItemClickListener;
-import com.kaka.recyclerviewlib.mode.ItemData;
+import com.hrx.recyclerview.baseadp.RecyclerAdp;
+import com.hrx.recyclerview.listener.OnItemClickListener;
+import com.hrx.recyclerview.mode.ItemData;
 
 import java.util.ArrayList;
 import java.util.List;

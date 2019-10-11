@@ -1,4 +1,4 @@
-package com.kaka.recyclerviewlib.treeadp;
+package com.hrx.recyclerview.treeadp;
 
 import android.util.Log;
 import android.view.View;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kaka.recyclerviewlib.base.BaseDelegate;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.listener.OnTreeItemClickListener;
-import com.kaka.recyclerviewlib.mode.TreeNode;
+import com.hrx.recyclerview.base.BaseDelegate;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.listener.OnTreeItemClickListener;
+import com.hrx.recyclerview.mode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

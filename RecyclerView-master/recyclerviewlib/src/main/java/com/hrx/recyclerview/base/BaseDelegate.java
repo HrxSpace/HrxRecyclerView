@@ -1,4 +1,4 @@
-package com.kaka.recyclerviewlib.base;
+package com.hrx.recyclerview.base;
 
 import android.view.LayoutInflater;
 import android.view.View;

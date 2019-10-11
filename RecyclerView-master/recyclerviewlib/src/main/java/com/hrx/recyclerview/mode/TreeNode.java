@@ -1,4 +1,4 @@
-package com.kaka.recyclerviewlib.mode;
+package com.hrx.recyclerview.mode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.kaka.recyclerviewlib.mode;
+package com.hrx.recyclerview.mode;
 
 /**
  * Created by hrx on 2017/4/21.

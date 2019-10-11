@@ -1,6 +1,6 @@
-package com.kaka.recyclerviewlib.treeadp;
+package com.hrx.recyclerview.treeadp;
 
-import com.kaka.recyclerviewlib.mode.TreeNode;
+import com.hrx.recyclerview.mode.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

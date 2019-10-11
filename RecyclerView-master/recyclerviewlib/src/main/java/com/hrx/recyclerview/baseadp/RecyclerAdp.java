@@ -1,13 +1,13 @@
-package com.kaka.recyclerviewlib.baseadp;
+package com.hrx.recyclerview.baseadp;
 
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kaka.recyclerviewlib.base.BaseDelegate;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.listener.OnItemClickListener;
+import com.hrx.recyclerview.base.BaseDelegate;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.listener.OnItemClickListener;
 
 import java.util.Collections;
 import java.util.List;

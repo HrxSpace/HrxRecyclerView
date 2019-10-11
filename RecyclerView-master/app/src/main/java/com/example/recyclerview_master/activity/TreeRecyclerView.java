@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.model.AnimalBean;
 import com.example.recyclerview_master.treelevel.TreeDelegate;
-import com.kaka.recyclerviewlib.mode.TreeNode;
-import com.kaka.recyclerviewlib.treeadp.TreeRecyclerAdapter;
-import com.kaka.recyclerviewlib.listener.OnTreeItemClickListener;
+import com.hrx.recyclerview.mode.TreeNode;
+import com.hrx.recyclerview.treeadp.TreeRecyclerAdapter;
+import com.hrx.recyclerview.listener.OnTreeItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

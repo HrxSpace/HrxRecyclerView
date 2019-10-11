@@ -5,8 +5,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.recyclerview_master.R;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.mode.ItemData;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.mode.ItemData;
 
 /**
  * Created by hrx on 2017/4/22.

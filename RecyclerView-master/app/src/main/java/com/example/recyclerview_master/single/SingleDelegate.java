@@ -6,9 +6,9 @@ import com.example.recyclerview_master.R;
 import com.example.recyclerview_master.single.holder.AnimalViewHolder;
 import com.example.recyclerview_master.single.holder.HeaderViewHolder;
 import com.example.recyclerview_master.single.holder.PlantViewHolder;
-import com.kaka.recyclerviewlib.base.BaseDelegate;
-import com.kaka.recyclerviewlib.base.BaseViewHolder;
-import com.kaka.recyclerviewlib.mode.ItemData;
+import com.hrx.recyclerview.base.BaseDelegate;
+import com.hrx.recyclerview.base.BaseViewHolder;
+import com.hrx.recyclerview.mode.ItemData;
 
 /**
  * Created by hrx on 2017/4/22.
