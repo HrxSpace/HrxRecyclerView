@@ -17,16 +17,15 @@ import java.util.List;
  * 适配器基类
  */
 
-public class RecyclerAdp<T> extends RecyclerView.Adapter<BaseViewHolder> {
+public class RecyclerAdp<T> extends RecyclerView.Adapter<BaseViewHolder<T>> {
 
+    private List<T> mDataList;//列表数据源
 
-    protected List<T> mDataList;//列表数据源
+    private BaseDelegate<T> mDelegate;//ViewHolder分发器
 
-    protected BaseDelegate mDelegate;//ViewHolder分发器
+    private OnItemClickListener<T> mListener;//Item监听接口
 
-    protected OnItemClickListener mListener;//Item监听接口
-
-    public RecyclerAdp(List<T> dataList, BaseDelegate delegate) {
+    public RecyclerAdp(List<T> dataList, BaseDelegate<T> delegate) {
         if (dataList == null) {
             dataList = Collections.emptyList();
         }
@@ -42,7 +41,7 @@ public class RecyclerAdp<T> extends RecyclerView.Adapter<BaseViewHolder> {
      * @return 生成的ViewHolder
      */
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
         return mDelegate.onCreateViewHolder(parent, viewType);
     }
 
@@ -53,7 +52,7 @@ public class RecyclerAdp<T> extends RecyclerView.Adapter<BaseViewHolder> {
      * @param position 在数据源中的位置
      */
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, final int position) {
+    public void onBindViewHolder(BaseViewHolder<T> holder, final int position) {
         if (holder != null) {
             holder.onBindViewHolder(mDataList.get(position));
             if (mListener != null && holder.clickAble()) {

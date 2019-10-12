@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhangke on 2017-1-14.
+ * Created by hrx on 2019-10-12.
  */
 public class TreeNode<T, B> {
     /**
@@ -87,7 +87,6 @@ public class TreeNode<T, B> {
         this.bean = bean;
     }
 
-
     public int getIcon() {
         return icon;
     }
@@ -147,7 +146,7 @@ public class TreeNode<T, B> {
     /**
      * 是否为跟节点
      *
-     * @return
+     * @return true - 根节点，false - 不是根节点
      */
     public boolean isRoot() {
         return parent == null;
@@ -156,18 +155,19 @@ public class TreeNode<T, B> {
     /**
      * 判断父节点是否展开
      *
-     * @return
+     * @return true - 展开， false - 不展开
      */
     public boolean isParentExpand() {
-        if (parent == null)
+        if (parent == null) {
             return false;
+        }
         return parent.isExpand();
     }
 
     /**
      * 是否是叶子界点
      *
-     * @return
+     * @return true - 是叶子节点， false - 不是
      */
     public boolean isLeaf() {
         return children.size() == 0;
@@ -189,7 +189,7 @@ public class TreeNode<T, B> {
         this.isExpand = isExpand;
         if (!isExpand) {
             for (TreeNode baseTreeNode : children) {
-                baseTreeNode.setExpand(isExpand);
+                baseTreeNode.setExpand(false);
             }
         }
     }

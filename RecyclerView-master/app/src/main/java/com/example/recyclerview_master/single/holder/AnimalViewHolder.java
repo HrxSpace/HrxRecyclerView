@@ -28,8 +28,8 @@ public class AnimalViewHolder extends BaseViewHolder<ItemData> {
 
     @Override
     public void findViews() {
-        image = (ImageView) itemView.findViewById(R.id.item_animal_image);
-        name = (TextView) itemView.findViewById(R.id.item_animal_name);
+        image = itemView.findViewById(R.id.item_animal_image);
+        name = itemView.findViewById(R.id.item_animal_name);
     }
 
     @Override

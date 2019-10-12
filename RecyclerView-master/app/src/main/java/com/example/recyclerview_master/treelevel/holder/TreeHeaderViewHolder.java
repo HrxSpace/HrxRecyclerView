@@ -23,7 +23,7 @@ public class TreeHeaderViewHolder extends BaseViewHolder<TreeNode> {
 
     @Override
     public void findViews() {
-        title = (TextView) itemView.findViewById(R.id.item_header_title);
+        title = itemView.findViewById(R.id.item_header_title);
     }
 
     @Override

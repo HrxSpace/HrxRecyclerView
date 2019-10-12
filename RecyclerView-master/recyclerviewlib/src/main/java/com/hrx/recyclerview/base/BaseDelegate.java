@@ -18,7 +18,7 @@ public abstract class BaseDelegate<T> {
      * @param viewType viewHolder类型
      * @return 生成的ViewHolder
      */
-    public abstract BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
+    public abstract BaseViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType);
 
     /**
      * 根据数据获取ViewHolder的类型
@@ -43,7 +43,7 @@ public abstract class BaseDelegate<T> {
      * @param viewType ViewHolder的类型
      * @return 布局
      */
-    public View getItemView(ViewGroup parent, int viewType) {
+    protected View getItemView(ViewGroup parent, int viewType) {
         return LayoutInflater.from(parent.getContext()).inflate(getLayoutId(viewType), parent, false);
     }
 }

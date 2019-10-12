@@ -23,7 +23,6 @@ import java.util.List;
 
 public class SingleRecyclerView extends BaseActivity implements OnItemClickListener {
 
-    private RecyclerView mRecyclerView;
     private RecyclerAdp<ItemData> recyclerAdp;
     private List<ItemData> datas;
 
@@ -49,9 +48,9 @@ public class SingleRecyclerView extends BaseActivity implements OnItemClickListe
     }
 
     private void initView() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler);
+        RecyclerView mRecyclerView = findViewById(R.id.recycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerAdp = new RecyclerAdp(datas, new SingleDelegate());
+        recyclerAdp = new RecyclerAdp<>(datas, new SingleDelegate());
         recyclerAdp.setItemClickListener(this);
         mRecyclerView.setAdapter(recyclerAdp);
         recyclerAdp.notifyDataSetChanged();

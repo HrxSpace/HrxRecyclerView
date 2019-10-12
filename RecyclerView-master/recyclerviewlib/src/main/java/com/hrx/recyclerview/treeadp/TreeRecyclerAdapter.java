@@ -24,12 +24,12 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 存储所有可见的Node
      */
-    protected List<TreeNode> mTreeNodes = new ArrayList<>();
+    protected List<TreeNode> mTreeNodes;
 
     /**
      * 存储所有的Node
      */
-    protected List<TreeNode> mAllTreeNodes = new ArrayList<>();
+    protected List<TreeNode> mAllTreeNodes;
 
     /**
      * 0--默认不展开
@@ -67,13 +67,11 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             baseTreeNode.iconExpand = iconExpand;
             baseTreeNode.iconNoExpand = iconNoExpand;
         }
-        /**
-         * 对所有的Node进行排序
-         */
+
+        /* 对所有的Node进行排序 */
         mAllTreeNodes = TreeHelper.getSortedNodes(datas, defaultExpandLevel);
-        /**
-         * 过滤出可见的Node
-         */
+
+        /* 过滤出可见的Node */
         mTreeNodes = TreeHelper.filterVisibleNode(mAllTreeNodes);
     }
 
@@ -101,7 +99,6 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
 
-
     /**
      * 给ViewHolder绑定数据
      *
@@ -119,13 +116,11 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /**
-                     * 设置节点点击时，可以展开以及关闭
-                     */
+
+                    /* 设置节点点击时，可以展开以及关闭 */
                     expandOrCollapse(pos);
-                    /**
-                     * 点击项移动到第一行
-                     */
+
+                    /* 点击项移动到第一行 */
                     ScrollItemToFist(pos, treeNode);
 
                     if (mListener != null) {
@@ -169,60 +164,60 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 清除掉之前数据并刷新  重新添加
      *
-     * @param mlists
+     * @param lists 数据集合
      * @param defaultExpandLevel 默认展开几级列表
      */
-    public void addDataAll(List<TreeNode> mlists, int defaultExpandLevel) {
+    public void addDataAll(List<TreeNode> lists, int defaultExpandLevel) {
         mAllTreeNodes.clear();
-        addData(-1, mlists, defaultExpandLevel);
+        addData(-1, lists, defaultExpandLevel);
     }
 
     /**
      * 在指定位置添加数据并刷新 可指定刷新后显示层级
      *
-     * @param index
-     * @param mlists
+     * @param index 索引
+     * @param lists 数据集合
      * @param defaultExpandLevel 默认展开几级列表
      */
-    public void addData(int index, List<TreeNode> mlists, int defaultExpandLevel) {
+    public void addData(int index, List<TreeNode> lists, int defaultExpandLevel) {
         this.defaultExpandLevel = defaultExpandLevel;
-        notifyData(index, mlists);
+        notifyData(index, lists);
     }
 
     /**
      * 在指定位置添加数据并刷新
      *
-     * @param index
-     * @param mlists
+     * @param index 索引
+     * @param lists 数据集合
      */
-    public void addData(int index, List<TreeNode> mlists) {
-        notifyData(index, mlists);
+    public void addData(int index, List<TreeNode> lists) {
+        notifyData(index, lists);
     }
 
     /**
      * 添加数据并刷新
      *
-     * @param mlists
+     * @param lists 数据集合
      */
-    public void addData(List<TreeNode> mlists) {
-        addData(mlists, defaultExpandLevel);
+    public void addData(List<TreeNode> lists) {
+        addData(lists, defaultExpandLevel);
     }
 
     /**
      * 添加数据并刷新 可指定刷新后显示层级
      *
-     * @param mlists
-     * @param defaultExpandLevel
+     * @param lists 数据集合
+     * @param defaultExpandLevel 默认展开级别
      */
-    public void addData(List<TreeNode> mlists, int defaultExpandLevel) {
+    public void addData(List<TreeNode> lists, int defaultExpandLevel) {
         this.defaultExpandLevel = defaultExpandLevel;
-        notifyData(-1, mlists);
+        notifyData(-1, lists);
     }
 
     /**
      * 添加数据并刷新
      *
-     * @param baseTreeNode
+     * @param baseTreeNode 数据节点
      */
     public void addData(TreeNode baseTreeNode) {
         addData(baseTreeNode, defaultExpandLevel);
@@ -231,8 +226,8 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 添加数据并刷新 可指定刷新后显示层级
      *
-     * @param baseTreeNode
-     * @param defaultExpandLevel
+     * @param baseTreeNode 数据节点
+     * @param defaultExpandLevel 默认展开级别
      */
     public void addData(TreeNode baseTreeNode, int defaultExpandLevel) {
         List<TreeNode> baseTreeNodes = new ArrayList<>();
@@ -244,12 +239,12 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 刷新数据
      *
-     * @param index
-     * @param mListTreeNodes
+     * @param index 索引
+     * @param listTreeNodes 数据节点集合
      */
-    private void notifyData(int index, List<TreeNode> mListTreeNodes) {
-        for (int i = 0; i < mListTreeNodes.size(); i++) {
-            TreeNode baseTreeNode = mListTreeNodes.get(i);
+    private void notifyData(int index, List<TreeNode> listTreeNodes) {
+        for (int i = 0; i < listTreeNodes.size(); i++) {
+            TreeNode baseTreeNode = listTreeNodes.get(i);
             baseTreeNode.getChildren().clear();
             baseTreeNode.iconExpand = iconExpand;
             baseTreeNode.iconNoExpand = iconNoExpand;
@@ -260,9 +255,9 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             baseTreeNode.isNewAdd = false;
         }
         if (index != -1) {
-            mAllTreeNodes.addAll(index, mListTreeNodes);
+            mAllTreeNodes.addAll(index, listTreeNodes);
         } else {
-            mAllTreeNodes.addAll(mListTreeNodes);
+            mAllTreeNodes.addAll(listTreeNodes);
         }
         //对所有的Node进行排序
         mAllTreeNodes = TreeHelper.getSortedNodes(mAllTreeNodes, defaultExpandLevel);
@@ -298,10 +293,10 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 int childSize = n.getChildren().size();
                 if (!isExpand) {
                     notifyItemRangeInserted(position + 1, childSize);
-                    notifyItemRangeChanged(position + 1, mTreeNodes.size() -1 - position);
+                    notifyItemRangeChanged(position + 1, mTreeNodes.size() - 1 - position);
                 } else {
                     notifyItemRangeRemoved(position + 1, childSize);
-                    notifyItemRangeChanged(position + 1, preSize -1 - position);
+                    notifyItemRangeChanged(position + 1, preSize - 1 - position);
                 }
 
             }
@@ -311,7 +306,7 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 响应Item点击事件，将点击的节点移动到第一个Item
      */
-    public void ScrollItemToFist(int position,final TreeNode treeNode) {
+    public void ScrollItemToFist(int position, final TreeNode treeNode) {
         RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
         if (treeNode.isRoot() || treeNode.getParent() != null) {
             if (layoutManager instanceof LinearLayoutManager) {
@@ -333,8 +328,8 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 设置多选
      *
-     * @param baseTreeNode
-     * @param checked
+     * @param baseTreeNode 数据节点
+     * @param checked 选中状态
      */
     protected void setChecked(final TreeNode baseTreeNode, boolean checked) {
         baseTreeNode.setChecked(checked);
@@ -347,8 +342,8 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     /**
      * 设置是否选中
      *
-     * @param baseTreeNode
-     * @param checked
+     * @param baseTreeNode 数据节点
+     * @param checked 选中状态
      */
     public <T, B> void setChildChecked(TreeNode<T, B> baseTreeNode, boolean checked) {
         if (!baseTreeNode.isLeaf()) {
@@ -363,23 +358,23 @@ public class TreeRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private void setNodeParentChecked(TreeNode baseTreeNode, boolean checked) {
         if (checked) {
-            baseTreeNode.setChecked(checked);
+            baseTreeNode.setChecked(true);
             if (baseTreeNode.getParent() != null)
-                setNodeParentChecked(baseTreeNode.getParent(), checked);
+                setNodeParentChecked(baseTreeNode.getParent(), true);
         } else {
-            List<TreeNode> childrens = baseTreeNode.getChildren();
+            List<TreeNode> children = baseTreeNode.getChildren();
             boolean isChecked = false;
-            for (TreeNode children : childrens) {
-                if (children.isChecked()) {
+            for (TreeNode child : children) {
+                if (child.isChecked()) {
                     isChecked = true;
                 }
             }
             //如果所有自节点都没有被选中 父节点也不选中
             if (!isChecked) {
-                baseTreeNode.setChecked(checked);
+                baseTreeNode.setChecked(false);
             }
             if (baseTreeNode.getParent() != null)
-                setNodeParentChecked(baseTreeNode.getParent(), checked);
+                setNodeParentChecked(baseTreeNode.getParent(), false);
         }
     }
 

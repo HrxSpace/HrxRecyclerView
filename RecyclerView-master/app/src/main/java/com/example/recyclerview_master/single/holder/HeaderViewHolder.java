@@ -23,7 +23,7 @@ public class HeaderViewHolder extends BaseViewHolder<ItemData> {
 
     @Override
     public void findViews() {
-        title = (TextView) itemView.findViewById(R.id.item_header_title);
+        title = itemView.findViewById(R.id.item_header_title);
     }
 
     @Override
@@ -33,6 +33,7 @@ public class HeaderViewHolder extends BaseViewHolder<ItemData> {
 
     /**
      * 设置该类的ViewHolder是否可点击
+     *
      * @return false--不可点击，true--可点击
      */
     @Override

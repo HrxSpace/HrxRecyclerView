@@ -13,14 +13,14 @@ public class TreeHelper {
     /**
      * 传入node  返回排序后的Node
      *
-     * @param treeNodes
-     * @param defaultExpandLevel
-     * @return
+     * @param treeNodes 数据节点
+     * @param defaultExpandLevel 默认展开级别
+     * @return 数据节点集合
      */
     public static List<TreeNode> getSortedNodes(List<TreeNode> treeNodes, int defaultExpandLevel) {
         List<TreeNode> result = new ArrayList<>();
         // 设置Node间父子关系
-        List<TreeNode> baseTreeNodes = convetData2Node(treeNodes);
+        List<TreeNode> baseTreeNodes = convertData2Node(treeNodes);
         // 拿到根节点
         List<TreeNode> rootBaseTreeNodes = getRootNodes(baseTreeNodes);
         // 排序以及设置Node间关系
@@ -33,8 +33,8 @@ public class TreeHelper {
     /**
      * 过滤出所有可见的Node
      *
-     * @param baseTreeNodes
-     * @return
+     * @param baseTreeNodes 数据节点
+     * @return 数据节点集合
      */
     public static List<TreeNode> filterVisibleNode(List<TreeNode> baseTreeNodes) {
         List<TreeNode> result = new ArrayList<>();
@@ -52,13 +52,14 @@ public class TreeHelper {
     /**
      * 设置Node间，父子关系;让每两个节点都比较一次，即可设置其中的关系
      */
-    private static List<TreeNode> convetData2Node(List<TreeNode> treeNodes) {
+    private static List<TreeNode> convertData2Node(List<TreeNode> treeNodes) {
         for (int i = 0; i < treeNodes.size(); i++) {
             TreeNode n = treeNodes.get(i);
             for (int j = i + 1; j < treeNodes.size(); j++) {
                 TreeNode m = treeNodes.get(j);
                 if (m.getpId() == n.getId()) {
-                    n.getChildren().add(m);
+                    List<TreeNode> children = n.getChildren();
+                    children.add(m);
                     m.setParent(n);
                 } else if (m.getId() == n.getpId()) {
                     m.getChildren().add(n);

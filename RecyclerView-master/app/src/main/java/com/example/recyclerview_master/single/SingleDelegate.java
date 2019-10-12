@@ -22,7 +22,7 @@ public class SingleDelegate extends BaseDelegate<ItemData> {
     public static final int PLANT_TYPE = 2;//植物类
 
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder<ItemData> onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case HEADER_TYPE:
                 return new HeaderViewHolder(parent, getItemView(parent, viewType));
